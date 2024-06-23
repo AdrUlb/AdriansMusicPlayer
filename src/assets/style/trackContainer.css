@@ -1,0 +1,115 @@
+#trackContainer {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 5;
+
+	display: grid;
+	grid-template-rows: 10px 20px 20px 1fr 10px;
+	grid-template-columns: 100px 40px 40px 40px 1fr;
+
+	width: 100%;
+	height: 100px;
+	background: #262626;
+
+	box-shadow: 0 0 5px 0px #1A1A1A;
+}
+
+#trackContainer button {
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+#albumArt,
+#albumArtMissing {
+	grid-row-start: 1;
+	grid-row-end: 6;
+	grid-column-start: 1;
+
+	margin: 10px;
+	aspect-ratio: 1 / 1;
+	width: calc(100px - 10px * 2);
+	border-radius: 12px;
+}
+
+#albumArt {
+	cursor: pointer;
+}
+
+#albumArtMissing {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: inset 0 0 0 2px #444;
+}
+
+#albumArtMissing svg {
+	aspect-ratio: 1 / 1;
+	height: 80%;
+	fill: #888;
+}
+
+#trackName,
+#trackArtist {
+	grid-column-start: 2;
+	grid-column-end: 7;
+	max-width: fit-content;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	height: fit-content;
+}
+
+#trackName {
+	grid-row-start: 2;
+	font-weight: bolder;
+}
+
+#trackArtist {
+	grid-row-start: 3;
+}
+
+#trackArtist:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#prevButton,
+#playButton,
+#pauseButton,
+#nextButton {
+	grid-row-start: 4;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#prevButton {
+	grid-column-start: 2;
+}
+
+#playButton {
+	grid-column-start: 3;
+}
+
+#pauseButton {
+	grid-column-start: 3;
+}
+
+#nextButton {
+	grid-column-start: 4;
+}
+
+#prevButton svg,
+#nextButton svg {
+	aspect-ratio: 1 / 1;
+	width: 70%;
+}
+
+#playButton svg,
+#pauseButton svg {
+	aspect-ratio: 1 / 1;
+	width: 80%;
+}

@@ -1,6 +1,8 @@
+import "./assets/style/main.css";
+import "./assets/style/trackContainer.css";
+import "./assets/fonts/open-sans";
+
 import { MusicSearchSuggestions, MusicItem, MusicPlayerData, MusicArtist, MusicSong, MusicAlbum } from "./YtThing/Data";
-import MusicItemType from "./YtThing/Data/MusicItemType";
-import "./index.css";
 
 declare global {
 	interface Window {

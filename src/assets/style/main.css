@@ -36,13 +36,17 @@ body {
 	grid-template-rows: minmax(0, 1fr) auto;
 	grid-template-columns: 1fr 1fr;
 
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	font-family: "Open Sans", sans-serif;
 	background-color: #202020;
 	color: white;
 	overflow: hidden;
 
 	width: 100vw;
 	height: 100vh;
+}
+
+.hidden {
+	display: none !important;
 }
 
 #mainContainer {
@@ -66,13 +70,6 @@ body {
 	grid-template-rows: auto 40px 1fr;
 }
 
-#searchContainer button {
-	background: none;
-	border: none;
-	outline: none;
-	cursor: pointer;
-}
-
 #searchBox {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -84,7 +81,7 @@ body {
 	grid-row-end: 4;
 
 	border: none;
-	border-radius: 50px;
+	border-radius: 100px;
 	padding: 0 40px 0 16px;
 	font-size: 10pt;
 	background-color: #1A1A1A;
@@ -95,7 +92,7 @@ body {
 }
 
 #searchInput:focus {
-	outline: #068AAA 1px solid;
+	outline: #068AAA 2px solid;
 }
 
 #searchBoxSeparator {
@@ -112,9 +109,14 @@ body {
 	grid-row-start: 1;
 	grid-row-end: 4;
 
+	border: none;
+	outline: none;
 	height: 100%;
 	color: #BBB;
 	margin-left: -40px;
+	background: #444444;
+	border-radius: 0 50% 50% 0;
+	cursor: pointer;
 }
 
 #searchFilterContainer {
@@ -124,6 +126,10 @@ body {
 }
 
 #searchFilterContainer button {
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
 	margin: 0 2px;
 	padding: 6px 12px;
 	border-radius: 50px;
@@ -253,9 +259,9 @@ body {
 	grid-row-start: 3;
 	grid-column-start: 2;
 
-	width: fit-content;
 	color: #AAA;
 	font-style: italic;
+	overflow: visible;
 }
 
 .searchResult .albumName {
@@ -281,126 +287,11 @@ body {
 	width: fit-content;
 	color: #AAA;
 	font-style: italic;
+	overflow: visible;
 }
 
 .searchResult .songArtist:hover,
 .searchResult .songAlbum:hover {
 	text-decoration: underline;
 	cursor: pointer;
-}
-
-#trackContainer {
-	grid-column-start: 1;
-	grid-column-end: 3;
-	grid-row-start: 5;
-
-	display: grid;
-	grid-template-rows: 10px 20px 20px 1fr 10px;
-	grid-template-columns: 100px 40px 40px 40px 1fr;
-
-	width: 100%;
-	height: 100px;
-	background: #262626;
-
-	box-shadow: 0 0 5px 0px #1A1A1A;
-}
-
-#trackContainer button {
-	background: none;
-	border: none;
-	outline: none;
-	cursor: pointer;
-}
-
-#albumArt,
-#albumArtMissing {
-	grid-row-start: 1;
-	grid-row-end: 6;
-	grid-column-start: 1;
-
-	margin: 10px;
-	aspect-ratio: 1 / 1;
-	width: calc(100px - 10px * 2);
-	border-radius: 12px;
-}
-
-#albumArtMissing {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-shadow: inset 0 0 0 2px #444;
-}
-
-#albumArtMissing svg {
-	aspect-ratio: 1 / 1;
-	height: 80%;
-	fill: #888;
-}
-
-#trackName,
-#trackArtist {
-	grid-column-start: 2;
-	grid-column-end: 7;
-	max-width: fit-content;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
-	height: fit-content;
-}
-
-#trackName {
-	grid-row-start: 2;
-	font-weight: bolder;
-}
-
-#trackArtist {
-	grid-row-start: 3;
-}
-
-#trackArtist:hover{
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-#prevButton,
-#playButton,
-#pauseButton,
-#nextButton {
-	grid-row-start: 4;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-#prevButton {
-	grid-column-start: 2;
-}
-
-#playButton {
-	grid-column-start: 3;
-}
-
-#pauseButton {
-	grid-column-start: 3;
-}
-
-#nextButton {
-	grid-column-start: 4;
-}
-
-#prevButton svg,
-#nextButton svg {
-	aspect-ratio: 1 / 1;
-	width: 70%;
-}
-
-#playButton svg,
-#pauseButton svg {
-	aspect-ratio: 1 / 1;
-	width: 80%;
-}
-
-.hidden {
-	display: none !important;
 }
