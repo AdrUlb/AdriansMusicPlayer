@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Adrian's Music Player</title>
+</head>
+
+<body>
+	<audio id="mainAudio"></audio>
+	<div id="mainContainer">
+		<div id="searchContainer">
+			<div id="searchBox">
+				<input id="searchInput" type="text" placeholder="Search">
+				<div id="searchBoxSeparator"></div>
+				<button id="searchButton" type="submit" name="searchButton">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 -960 960 960"
+						fill="currentColor">
+						<path
+							d="M765-144 526-383q-30 22-65.79 34.5-35.79 12.5-76.18 12.5Q284-336 214-406t-70-170q0-100 70-170t170-70q100 0 170 70t70 170.03q0 40.39-12.5 76.18Q599-464 577-434l239 239-51 51ZM384-408q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Z" />
+					</svg>
+				</button>
+			</div>
+			<div id="searchFilterContainer">
+				<p id="searchFilterText">Search for</p>
+				<button id="searchSongsButton" class="active">Songs</button>
+				<button id="searchAlbumsButton">Albums</button>
+				<button id="searchArtistsButton">Artists</button>
+			</div>
+			<div id="searchResultsSongs" class="searchResults"></div>
+			<div id="searchResultsAlbums" class="searchResults hidden"></div>
+			<div id="searchResultsArtists" class="searchResults hidden"></div>
+		</div>
+	</div>
+
+	<div class="itemContainer">
+		album/artist info
+	</div>
+
+	<div id="trackContainer">
+		<img id="albumArt" class="hidden" src="">
+		<div id="albumArtMissing"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+				width="48px" fill="currentColor">
+				<path
+					d="M393-120q-63 0-106.5-43.5T243-270q0-63 43.5-106.5T393-420q28 0 50.5 8t39.5 22v-450h234v135H543v435q0 63-43.5 106.5T393-120Z" />
+			</svg></div>
+		<div id="trackName">Nothing Playing</div>
+		<p id="trackArtist">Nothing Playing</p>
+		<button id="prevButton"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+				width="48px" fill="currentColor">
+				<path d="M220-240v-480h60v480h-60Zm520 0L394-480l346-240v480Z" />
+			</svg></button>
+		<button id="playButton"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+				width="48px" fill="currentColor">
+				<path d="M320-203v-560l440 280-440 280Z" />
+			</svg></button>
+		<button id="pauseButton" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" height="48px"
+				viewBox="0 -960 960 960" width="48px" fill="currentColor">
+				<path d="M555-200v-560h175v560H555Zm-325 0v-560h175v560H230Z" />
+			</svg></button>
+		<button id="nextButton"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+				width="48px" fill="currentColor">
+				<path d="M680-240v-480h60v480h-60Zm-460 0v-480l346 240-346 240Z" />
+			</svg></button>
+	</div>
+</body>
+
+</html>

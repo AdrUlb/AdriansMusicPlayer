@@ -1,0 +1,406 @@
+:root {
+	color-scheme: dark;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #444444;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #068AAA;
+}
+
+/*::-webkit-scrollbar-button:single-button {
+	background-color: #1A1A1A;
+	height: 10px;
+	width: 10px;
+}*/
+
+* {
+	-webkit-user-drag: none;
+	user-select: none;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: grid;
+	grid-template-rows: minmax(0, 1fr) auto;
+	grid-template-columns: 1fr 1fr;
+
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	background-color: #202020;
+	color: white;
+	overflow: hidden;
+
+	width: 100vw;
+	height: 100vh;
+}
+
+#mainContainer {
+	grid-row-start: 1;
+	grid-column-start: 1;
+	grid-column-end: 2;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: minmax(0, 1fr) auto;
+
+	padding: 10px 10px 0 10px;
+}
+
+#searchContainer {
+	grid-row-start: 1;
+	grid-column-start: 1;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 40px 1fr;
+}
+
+#searchContainer button {
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+#searchBox {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 6px 24px 6px;
+}
+
+#searchInput {
+	grid-row-start: 1;
+	grid-row-end: 4;
+
+	border: none;
+	border-radius: 50px;
+	padding: 0 40px 0 16px;
+	font-size: 10pt;
+	background-color: #1A1A1A;
+	color: white;
+	font-size: 14px;
+	transition: outline 100ms ease-out;
+	outline: #1A1A1A 0px solid;
+}
+
+#searchInput:focus {
+	outline: #068AAA 1px solid;
+}
+
+#searchBoxSeparator {
+	grid-row-start: 2;
+	grid-row-end: 3;
+	grid-column-start: 2;
+
+	background-color: #444444;
+	width: 1px;
+	margin-left: -36px;
+}
+
+#searchButton {
+	grid-row-start: 1;
+	grid-row-end: 4;
+
+	height: 100%;
+	color: #BBB;
+	margin-left: -40px;
+}
+
+#searchFilterContainer {
+	grid-row-start: 2;
+	display: flex;
+	align-items: center;
+}
+
+#searchFilterContainer button {
+	margin: 0 2px;
+	padding: 6px 12px;
+	border-radius: 50px;
+	background-color: #1A1A1A;
+}
+
+#searchFilterContainer button.active {
+	background-color: white;
+	color: black;
+}
+
+#searchFilterContainer p {
+	text-align: center;
+}
+
+#searchFilterText {
+	padding: 0 8px;
+}
+
+.searchResults {
+	grid-row-start: 3;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+	min-width: 0;
+	min-height: 0;
+}
+
+.searchResult {
+	display: grid;
+	grid-template-columns: auto auto 1fr;
+	height: 80px;
+}
+
+.songSearchResult {
+	grid-template-rows: 1fr 20px 20px 20px 1fr;
+}
+
+.albumSearchResult {
+	grid-template-rows: 1fr 20px 20px 20px 1fr;
+}
+
+.artistSearchResult {
+	grid-template-rows: 1fr 20px 20px 20px 1fr;
+}
+
+.searchResult:not(:last-child) {
+	border-bottom: 1px solid #444;
+}
+
+.searchResult .songArt,
+.searchResult .albumArt,
+.searchResult .artistImage,
+.searchResult .songArtHoverPlayButton {
+	grid-row-start: 1;
+	grid-row-end: 6;
+	grid-column-start: 1;
+
+	aspect-ratio: 1 / 1;
+	height: calc(100% - 8px * 2);
+	padding: 8px;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+.searchResult:hover .songArt,
+.searchResult:hover .albumArt,
+.searchResult:hover .artistImage {
+	filter: brightness(30%);
+}
+
+.searchResult .songArtHoverPlayButton {
+	z-index: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+
+.searchResult .songArtHoverPlayButton svg {
+	width: 70%;
+	height: 70%;
+
+	fill: #FFFFFF88;
+}
+
+.searchResult:hover .songArtHoverPlayButton {
+	display: flex;
+}
+
+.searchResult p {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: fit-content;
+}
+
+.searchResult .songName {
+	grid-row-start: 2;
+	grid-column-start: 2;
+
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+.searchResult .songArtist {
+	grid-row-start: 3;
+	grid-column-start: 2;
+}
+
+.searchResult .songAlbum {
+	grid-row-start: 4;
+	grid-column-start: 2;
+
+	color: #AAA;
+}
+
+.searchResult .artistName {
+	grid-row-start: 2;
+	grid-column-start: 2;
+
+	font-weight: bolder;
+	cursor: pointer;
+	width: fit-content;
+}
+
+.searchResult .artistLabel {
+	grid-row-start: 3;
+	grid-column-start: 2;
+
+	width: fit-content;
+	color: #AAA;
+	font-style: italic;
+}
+
+.searchResult .albumName {
+	grid-row-start: 2;
+	grid-column-start: 2;
+
+	font-weight: bolder;
+	cursor: pointer;
+	width: fit-content;
+}
+
+.searchResult .albumArtist {
+	grid-row-start: 3;
+	grid-column-start: 2;
+
+	width: fit-content;
+}
+
+.searchResult .albumLabel {
+	grid-row-start: 4;
+	grid-column-start: 2;
+
+	width: fit-content;
+	color: #AAA;
+	font-style: italic;
+}
+
+.searchResult .songArtist:hover,
+.searchResult .songAlbum:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#trackContainer {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 5;
+
+	display: grid;
+	grid-template-rows: 10px 20px 20px 1fr 10px;
+	grid-template-columns: 100px 40px 40px 40px 1fr;
+
+	width: 100%;
+	height: 100px;
+	background: #262626;
+
+	box-shadow: 0 0 5px 0px #1A1A1A;
+}
+
+#trackContainer button {
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+#albumArt,
+#albumArtMissing {
+	grid-row-start: 1;
+	grid-row-end: 6;
+	grid-column-start: 1;
+
+	margin: 10px;
+	aspect-ratio: 1 / 1;
+	width: calc(100px - 10px * 2);
+	border-radius: 12px;
+}
+
+#albumArtMissing {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: inset 0 0 0 2px #444;
+}
+
+#albumArtMissing svg {
+	aspect-ratio: 1 / 1;
+	height: 80%;
+	fill: #888;
+}
+
+#trackName,
+#trackArtist {
+	grid-column-start: 2;
+	grid-column-end: 7;
+	max-width: fit-content;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	height: fit-content;
+}
+
+#trackName {
+	grid-row-start: 2;
+	font-weight: bolder;
+}
+
+#trackArtist {
+	grid-row-start: 3;
+}
+
+#trackArtist:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#prevButton,
+#playButton,
+#pauseButton,
+#nextButton {
+	grid-row-start: 4;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#prevButton {
+	grid-column-start: 2;
+}
+
+#playButton {
+	grid-column-start: 3;
+}
+
+#pauseButton {
+	grid-column-start: 3;
+}
+
+#nextButton {
+	grid-column-start: 4;
+}
+
+#prevButton svg,
+#nextButton svg {
+	aspect-ratio: 1 / 1;
+	width: 70%;
+}
+
+#playButton svg,
+#pauseButton svg {
+	aspect-ratio: 1 / 1;
+	width: 80%;
+}
+
+.hidden {
+	display: none !important;
+}
